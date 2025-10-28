@@ -1,0 +1,123 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #ffffff;
+  text-align: center;
+}
+
+
+h1 {
+  margin-top: 80px;
+  font-size: 32px;
+  color: #c9b93a;
+  border: 1px solid #000;
+  display: inline-block;
+  padding: 10px 30px;
+  border-radius: 8px;
+}
+
+form {
+  margin-top: 60px;
+  display: inline-block;
+  text-align: left;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+input[type="text"] {
+  width: 300px;
+  padding: 8px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  border: 1px solid #000;
+  display: block;
+}
+
+.submit-link {
+  display: block;
+  width: 200px;
+  margin: 150px auto 0;
+  text-decoration: none;
+  color: black;
+  background-color: rgb(175, 235, 235);
+  font-size: 16px;
+  text-align: center;
+  padding: 10px;
+  border-radius: 8px;
+  transition: background 0.3s;
+}
+
+.submit-link:hover {
+  background-color: aquamarine;
+}
+
+
+.home-icon {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  background-color: rgb(175, 235, 235);
+  padding: 8px;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: all 0.3s;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.home-icon:hover {
+  background-color: aquamarine;
+  transform: scale(1.05);
+}
+
+.home-icon svg {
+  width: 24px;
+  height: 24px;
+  color: #000;
+}
+
+.icone {
+  margin: 20px auto;
+}
+
+.submit-link2 {
+  display: block;
+  width: 200px;
+  margin: 150px auto 0;
+  text-decoration: none;
+  color: black;
+  background-color: rgb(175, 235, 235);
+  font-size: 16px;
+  text-align: center;
+  padding: 10px;
+  border-radius: 8px;
+  transition: background 0.3s;
+}
+
+.submit-link2:hover {
+  background-color: aquamarine;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #fff;
+  margin: 0;
+  padding: 0;
+}
+
+button {
+  padding: 15px;
+  border-radius: 6px;
+  background: #007bff;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #0056b3;
+}
