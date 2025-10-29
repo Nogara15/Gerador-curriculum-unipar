@@ -9,12 +9,13 @@ $cpf = $_POST['cpf'];
 $sql = "INSERT INTO users (nome, cpf) VALUES ('$nome', '$cpf')";
 
 
-if (mysqli_query($conn, $sql)) {
+if (mysqli_query($conexao, $sql)) {
     echo "Registro inserido com sucesso!";
 } else {
-    echo "Erro ao inserir registro: " . mysqli_error($conn);
+    echo "Erro ao inserir registro: " . mysqli_error($conexao);
 }
 
-mysqli_close($conn);
-
+mysqli_close($conexao);
+header("Location: index.html");
+exit;
 ?>

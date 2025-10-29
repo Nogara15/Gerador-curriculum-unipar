@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerador</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <h1>Gerador</h1>
+
+    <h2>
+    <form action="addDados.php" method="POST" enctype="multipart/form-data">
+        <fieldset>
+            <legend>Dados</legend>
+
+            <label for="cpf">CPF</label>
+            <input type="text" id="cpf" name="cpf" required>
+
+            <label for="numero">Numero</label>
+            <input type="text" id="numero" name="numero" required>
+
+            <label for="email">E-mail</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="estado">Estado</label>
+            <input type="text" id="estado" name="estado" required>
+
+            <label for="cidade">Cidade</label>
+            <input type="text" id="cidade" name="cidade" required>
+
+            <label for="sexo">Sexo</label>
+            <input type="text" id="sexo" name="sexo" required>
+
+            <label for="dt_nascismento">Data de nascimento</label>
+            <input type="date" id="dt_nascismento" name="dt_nascismento" required>
+
+            <label for="img">Imagem</label>
+            <input type="file" id="img" name="img" accept="image/*">
+
+            <label for="perfil">Perfil</label>
+            <textarea id="perfil" name="perfil" rows="3"></textarea>
+
+            <button type="submit" class="submit-link">Proximo >></button>
+        </fieldset>
+    </form>
+</h2>
+</body>
+</html>

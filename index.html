@@ -1,19 +1,17 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gerador</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gerador</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="container">
-        <h1 class="titulo">Gerador</h1>
+  <div class="container">
+    <h1 class="titulo">Gerador</h1>
 
-<div class="icone">
-
+    <div class="icone">
       <svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 160 160" aria-hidden="true">
-        <!-- círculos externos -->
         <circle cx="80" cy="80" r="75" fill="none" stroke="#FF4A1A" stroke-width="8"/>
         <circle cx="80" cy="80" r="60" fill="none" stroke="#FF4A1A" stroke-width="8"/>
         <circle cx="80" cy="80" r="45" fill="none" stroke="#FF4A1A" stroke-width="8"/>
@@ -22,13 +20,46 @@
       </svg>
     </div>
 
-<form id="login-form">
+    <form id="login-form">
       <label for="cpf">CPF</label>
       <input type="text" id="cpf" name="cpf" placeholder="000.000.000-00" autocomplete="off" required>
       <button type="submit">Entrar</button>
     </form>
 
-        <a href="createUser.html" class="submit-link2">Adicionar usuário</a>
-    </div>
+    <a href="createUser.html" class="submit-link2">Adicionar usuário</a>
+  </div>
+
+  <script>
+  document.getElementById("login-form").addEventListener("submit", async function(e) {
+      e.preventDefault();
+
+      const cpf = document.getElementById("cpf").value.trim();
+
+      try {
+          const response = await fetch("buscarUser.php", {
+              method: "POST",
+              headers: { "Content-Type": "application/x-www-form-urlencoded" },
+              body: "cpf=" + encodeURIComponent(cpf)
+          });
+
+          if (!response.ok) {
+              throw new Error("Erro na resposta do servidor.");
+          }
+
+          const data = await response.json();
+
+          if (data.success) {
+              alert("Login realizado com sucesso!");
+              window.location.href = "painel.html";
+          } else {
+              alert(data.message || "CPF não encontrado.");
+          }
+
+      } catch (error) {
+          console.error("Erro:", error);
+          alert("Erro ao conectar com o servidor.");
+      }
+  });
+  </script>
 </body>
 </html>
