@@ -16,6 +16,6 @@ if (mysqli_query($conexao, $sql)) {
 }
 
 mysqli_close($conexao);
-header("Location: index.html");
+header("Location: painel.html");
 exit;
 ?>
