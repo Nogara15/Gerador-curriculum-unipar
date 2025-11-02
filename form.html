@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerador - Formação</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <h1 class="titulo">Gerador</h1>
+<div class="titulo-formacao">
+    <h2 class="subtitulo">Formação</h2>
+    <button id="addBox" class="add-button" title="Adicionar formação" type="button">+</button>
+</div>
+
+        <form action="addForm.php" method="POST" id="formCompet">
+
+            <div id="formacaoContainer" class="formacao-grid">
+                <div class="formacao-card">
+                    <label>Curso - Instituição</label>
+                    <input type="text" name="curso[]" placeholder="">
+                    <div class="linha-dupla">
+                        <div>
+                            <label>Localidade</label>
+                            <input type="text" name="localidade[]" placeholder="">
+                        </div>
+                        <div>
+                            <label>Período</label>
+                            <input type="text" name="periodo[]" placeholder="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <input type="hidden" name="cpf" id="cpf">
+
+
+            <div class="navigation">
+                <button href="painel.html" class="anterior">&lt;&lt; Anterior</button>
+                <button type="submit" class="proximo">Próximo &gt;&gt;</button>
+            </div>
+        </form>
+
+    </div>
+
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const cpf = urlParams.get('cpf');
+        const container = document.getElementById('formacaoContainer');
+        const addBtn = document.getElementById('addBox');
+
+        if (cpf) {
+            localStorage.setItem('cpf', cpf);
+            console.log("CPF carregado:", cpf);
+        }
+
+        document.getElementById('cpf').value = cpf || localStorage.getItem('cpf');
+
+        addBtn.addEventListener('click', () => {
+            const box = document.createElement('div');
+            box.classList.add('formacao-card');
+            box.innerHTML = `
+                <label>Curso - Instituição</label>
+                <input type="text" name="curso[]" placeholder="">
+                <div class="linha-dupla">
+                    <div>
+                        <label>Localidade</label>
+                        <input type="text" name="localidade[]" placeholder="">
+                    </div>
+                    <div>
+                        <label>Período</label>
+                        <input type="text" name="periodo[]" placeholder="">
+                    </div>
+                </div>
+            `;
+            container.appendChild(box);
+        });
+    </script>
+
+</body>
+
+</html>

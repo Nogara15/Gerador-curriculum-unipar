@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerador - Competências</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <div class="container">
+        <h1 class="titulo">Gerador</h1>
+
+        <div class="titulo-formacao">
+            <h2 class="subtitulo">Competências</h2>
+            <button id="addCompetencia" class="add-button" title="Adicionar competência">+</button>
+        </div>
+
+        <form action="addCompet.php" method="POST" id="formCompetencia">
+            <input type="hidden" name="cpf" id="cpf">
+
+            <div id="competenciasContainer" class="competencias-grid">
+                <div class="competencia-row">
+                    <input type="text" name="competencia[]">
+                    <input type="text" name="competencia[]">
+                </div>
+            </div>
+
+            <div class="navigation">
+                <button href="expir.html" class="anterior">&lt;&lt; Anterior</button>
+                <button type="submit" class="proximo">Salvar</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+
+        const urlParams = new URLSearchParams(window.location.search);
+        const cpf = urlParams.get('cpf');
+        document.getElementById('cpf').value = cpf || localStorage.getItem('cpf');
+        if (cpf) localStorage.setItem('cpf', cpf);
+
+        const container = document.getElementById('competenciasContainer');
+        const addBtn = document.getElementById('addCompetencia');
+
+        addBtn.addEventListener('click', () => {
+            const rows = container.getElementsByClassName('competencia-row');
+            const lastRow = rows[rows.length - 1];
+            const inputsNaLinha = lastRow.querySelectorAll('input').length;
+
+            if (inputsNaLinha < 4) {
+
+                lastRow.insertAdjacentHTML('beforeend', `
+                    <input type="text" name="competencia[]">
+                    <input type="text" name="competencia[]">
+                `);
+            } else {
+
+                const novaLinha = document.createElement('div');
+                novaLinha.classList.add('competencia-row');
+                novaLinha.innerHTML = `
+                    <input type="text" name="competencia[]">
+                    <input type="text" name="competencia[]">
+                `;
+                container.appendChild(novaLinha);
+            }
+        });
+    </script>
+
+</body>
+</html>

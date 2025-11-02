@@ -121,3 +121,76 @@ button {
 button:hover {
   background: #0056b3;
 }
+
+.formacao-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    justify-content: flex-start; 
+    padding-left: 80px;
+}
+
+.formacao-card {
+    border: 1px solid #222;
+    border-radius: 6px;
+    padding: 20px;
+    width: 22%;
+    min-width: 350px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.navigation {
+    position: fixed !important;
+    bottom: 20px;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 40px;
+    box-sizing: border-box;
+    background-color: transparent;
+    z-index: 1000;
+}
+
+.titulo-formacao {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px; 
+    margin-bottom: 20px;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.competencias-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 0 40px;
+}
+
+
+.competencia-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.competencia-row input {
+    flex: 1 1 calc(25% - 12px);
+    min-width: 200px;
+    text-align: center;
+    padding: 8px;
+    border: 1px solid #333;
+    border-radius: 6px;
+    box-sizing: border-box;
+}
